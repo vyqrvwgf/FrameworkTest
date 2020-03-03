@@ -21,16 +21,20 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/515310192@qq.com/FrameworkTest'
+  s.homepage         = 'https://github.com/vyqrvwgf/FrameworkTest.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '515310192@qq.com' => 'hanlei@yinxiang.com' }
-  s.source           = { :git => 'https://github.com/515310192@qq.com/FrameworkTest.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/vyqrvwgf/FrameworkTest.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
-
-  s.source_files = 'FrameworkTest/Classes/**/*'
+  
+  if ENV['Source']
+    s.source_files = 'FrameworkTest/Classes/**/*'
+  else
+    s.vendored_frameworks = "FrameworkTest-0.1.0/**/*.framework"
+  end
   
   # s.resource_bundles = {
   #   'FrameworkTest' => ['FrameworkTest/Assets/*.png']
